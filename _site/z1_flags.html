@@ -91,7 +91,7 @@
           
           
             
-              <li><a href="/z1_flags.html">Banderas</a></li>
+              <li class="active"><a href="/z1_flags.html" class="active">Banderas</a></li>
             
           
           
@@ -116,55 +116,104 @@
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-        	['City'], 
-      		
-			['Washington'],
-			
-			['San Francisco'],
-			
-			['New York'],
-			
-			['Miami'],
-			
+          ['City', 'Trips'],  
+          ['DE', 2],
+           
+          ['ES', 1],
+           
+          ['CH', 2],
+           
+          ['CU', 1],
+           
+          ['PT', 1],
+           
+          ['GB', 1],
+           
+          ['US', 4],
+           
+          ['IT', 2],
+           
+          ['FR', 1],
+           
+          ['AT', 1],
+          
+
         ]);
 
         var options = {
-        	region: 'US',        
-        	displayMode: 'markers',
-			colorAxis: {colors: ['#85A5CC', '#1A1F2B']},  
+          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},  
+        };
+
+        var euro_options = {
+          region: '150',
+          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},
         };
 
         var chart = new google.visualization.GeoChart(document.getElementById('world_chart_div'));
         chart.draw(data, options);
+
+        var euro_chart = new google.visualization.GeoChart(document.getElementById('europe_chart_div'));
+        euro_chart.draw(data, euro_options);
+
+        // register the 'select' event handler
+        google.visualization.events.addListener(chart, 'select', function () {
+            // GeoChart selections return an array of objects with a row property; no column information
+            var selection = chart.getSelection();
+            window.location = '/' +  data.getValue(selection[0].row, 0);
+        });
+
+        // register the 'select' event handler
+        google.visualization.events.addListener(euro_chart, 'select', function () {
+            // GeoChart selections return an array of objects with a row property; no column information
+            var selection = euro_chart.getSelection();
+            window.location = '/' +  data.getValue(selection[0].row, 0);
+        });
     };
+
     </script>
 <section class="content">
 
-  <h2><img src="http://www.geonames.org/flags/x/us.gif" width="30px" />
-  	Estados Unidos
-  </h2>
 <div class="row-fluid">
-	<div class="span6">
-      	<h2>Mapa</h2>
-		<div id="world_chart_div"></div>
-	</div>
+  <div class="span12">
+    <h2>Banderas</h2>
+    
+      <a href="/DE"><img src="http://www.geonames.org/flags/x/de.gif" width="30px" /></a>
+    
+      <a href="/ES"><img src="http://www.geonames.org/flags/x/es.gif" width="30px" /></a>
+    
+      <a href="/CH"><img src="http://www.geonames.org/flags/x/ch.gif" width="30px" /></a>
+    
+      <a href="/CU"><img src="http://www.geonames.org/flags/x/cu.gif" width="30px" /></a>
+    
+      <a href="/PT"><img src="http://www.geonames.org/flags/x/pt.gif" width="30px" /></a>
+    
+      <a href="/GB"><img src="http://www.geonames.org/flags/x/gb.gif" width="30px" /></a>
+    
+      <a href="/US"><img src="http://www.geonames.org/flags/x/us.gif" width="30px" /></a>
+    
+      <a href="/IT"><img src="http://www.geonames.org/flags/x/it.gif" width="30px" /></a>
+    
+      <a href="/FR"><img src="http://www.geonames.org/flags/x/fr.gif" width="30px" /></a>
+    
+      <a href="/AT"><img src="http://www.geonames.org/flags/x/at.gif" width="30px" /></a>
+    
+  </div>
+</div>
 
-	<div class="span6">
-      	<h2>Ciudades visitadas</h2>
-		<ul>
-		
-		<li><a href="/US/2012/12/16/washington.html">Washington</a></li>
-		
-		<li><a href="/US/2012/12/16/san-francisco.html">San Francisco</a></li>
-		
-		<li><a href="/US/2012/12/16/new-york.html">New York</a></li>
-		
-		<li><a href="/US/2012/12/16/miami.html">Miami</a></li>
-		
-		</ul>
+<div class="row-fluid">
+  <div class="span6">
+        <h2>Mundo</h2>
+  <div id="world_chart_div"></div>
+  </div>
+
+  <div class="span6">
+        <h2>Europa</h2>
+          <div id="europe_chart_div"></div>
     </div>
 </div>
 </section>
+
+
   		</div>
   	  </div>
 

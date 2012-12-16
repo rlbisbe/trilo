@@ -109,31 +109,50 @@
 
       <div class="row-fluid">
       	<div class="span12">
-  			<h1 class="content">Burgos</h1>
-<p>Estancia:  días</p>
-<div class="row-fluid">
-	<div class="span8">
-	<img src="http://maps.googleapis.com/maps/api/staticmap?center=Burgos&zoom=12&size=600x300&maptype=roadmap&sensor=false&"></img>		
-  	<h3>Descripción</h3>
-	<p>Burgos es una ciudad la mar de interesante!</p>
-	</div>
-	<div class="span4">
-		<h2>
+  			<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
 
-      	<h3>Recomendados</h3>
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+        	['City'], 
+      		
+			['Paris'],
+			
+        ]);
+
+        var options = {
+        	region: 'FR',        
+        	displayMode: 'markers',
+			colorAxis: {colors: ['#85A5CC', '#1A1F2B']},  
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('world_chart_div'));
+        chart.draw(data, options);
+    };
+    </script>
+<section class="content">
+
+  <h2><img src="http://www.geonames.org/flags/x/fr.gif" width="30px" />
+  	Francia
+  </h2>
+<div class="row-fluid">
+	<div class="span6">
+      	<h2>Mapa</h2>
+		<div id="world_chart_div"></div>
+	</div>
+
+	<div class="span6">
+      	<h2>Ciudades visitadas</h2>
 		<ul>
 		
-		</ul>
-      	<h3>Enlaces adicionales</h3>
-		<ul>
-		<li><a href="http://www.tripadvisor.es/Search?q=Burgos">Burgos en TripAdvisor</li>
-		<li><a href="http://es.wikipedia.org/wiki/Burgos">Burgos en Wikipedia</li>
+		<li><a href="/FR/2012/12/16/paris.html">Paris</a></li>
+		
 		</ul>
     </div>
-
 </div>
-<p>
-</p>
+</section>
   		</div>
   	  </div>
 

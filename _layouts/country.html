@@ -29,14 +29,14 @@ layout: default
   <h2><img src="http://www.geonames.org/flags/x/{{page.country | downcase}}.gif" width="30px" />
   	{{page.country_name}}
   </h2>
-<div class="row-fluid marketing">
+<div class="row-fluid">
 	<div class="span6">
       	<h2>Mapa</h2>
 		<div id="world_chart_div"></div>
 	</div>
 
 	<div class="span6">
-      	<h2>Ciudades</h2>
+      	<h2>Ciudades visitadas</h2>
 		<ul>
 		{% for post in  site.categories.[page.country] %}
 		<li><a href="{{ post.url }}">{{post.title}}</a></li>
