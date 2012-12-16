@@ -1,8 +1,73 @@
 ---
 layout: default
 group: "navigation"
-title: Inicio
+title: Paises
 ---
-<h1>Hola</h1>
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
 
-<p>Bienvenido a trilo, un sitio para que tengas tus viajes organizados</p>
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['City', 'Trips'], {% for cat in site.categories %} 
+          ['{{cat | first}}', {{ cat | last | size }}],
+          {% endfor %}
+
+        ]);
+
+        var options = {
+          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},  
+        };
+
+        var euro_options = {
+          region: '150',
+          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('world_chart_div'));
+        chart.draw(data, options);
+
+        var euro_chart = new google.visualization.GeoChart(document.getElementById('europe_chart_div'));
+        euro_chart.draw(data, euro_options);
+
+        // register the 'select' event handler
+        google.visualization.events.addListener(chart, 'select', function () {
+            // GeoChart selections return an array of objects with a row property; no column information
+            var selection = chart.getSelection();
+            window.location = data.getValue(selection[0].row, 0);
+        });
+
+        // register the 'select' event handler
+        google.visualization.events.addListener(euro_chart, 'select', function () {
+            // GeoChart selections return an array of objects with a row property; no column information
+            var selection = euro_chart.getSelection();
+            window.location = data.getValue(selection[0].row, 0);
+        });
+    };
+
+    </script>
+<section class="content">
+<hr>
+<div class="row-fluid">
+  <div class="span12">
+    <h2>Países</h2>
+    {% for cat in site.categories %}
+      <a href="{{site.baseurl}}/{{cat[0]}}"><img src="http://www.geonames.org/flags/x/{{cat[0] | downcase}}.gif" width="30px" /></a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6">
+        <h2>Mundo</h2>
+  <div id="world_chart_div"></div>
+  </div>
+
+  <div class="span6">
+        <h2>Europa</h2>
+          <div id="europe_chart_div"></div>
+    </div>
+</div>
+</section>
+

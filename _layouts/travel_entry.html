@@ -2,11 +2,18 @@
 layout: default
 root: "../../../../"
 ---
+<ul class="breadcrumb">
+  <li><a href="{{site.baseurl}}/{{page.categories}}"><img src="http://www.geonames.org/flags/x/{{page.categories[0] | downcase}}.gif" width="20px" /></a>
+ <span class="divider">/</span></li>
+  <li class="active"> {{page.title}}</li>
+</ul>
+<hr>
 <h1 class="content">{{page.title}}</h1>
 <p>Estancia: {{page.days}} días</p>
+
 <div class="row-fluid">
 	<div class="span8">
-	<img src="http://maps.googleapis.com/maps/api/staticmap?center={{page.title}}&zoom=12&size=600x300&maptype=roadmap&sensor=false&{% for post in  page.places %}markers=color:green%7C{{post}}&{% endfor %}"></img>		
+	<img src="http://maps.googleapis.com/maps/api/staticmap?center={{page.title}}&size=600x300&maptype=roadmap&sensor=false&{% for post in  page.places %}markers=color:green%7C{{post}}&{% endfor %}"></img>		
   	<h3>Descripción</h3>
 	{{ content }}
 	</div>
