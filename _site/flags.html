@@ -78,7 +78,56 @@
 
       <div class="row-fluid">
       	<div class="span12">
-  			{{content}}
+  			<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          
+          
+          ['ES'],
+          
+          ['PT'],
+          
+          ['US'],
+          
+          ['AT'],
+          
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    };
+    </script>
+<section class="content">
+  <h2>Mundo</h2>
+  <div id="chart_div" style="width: 600px;"></div>
+  <h2>Banderas</h2>
+  <p>Una lista de los países por los que he estado.</p>
+</section>
+<ul class="entries">
+  
+  <li>
+      <img src="http://www.geonames.org/flags/x/es.gif" width="30px" />
+  </li>
+  
+  <li>
+      <img src="http://www.geonames.org/flags/x/pt.gif" width="30px" />
+  </li>
+  
+  <li>
+      <img src="http://www.geonames.org/flags/x/us.gif" width="30px" />
+  </li>
+  
+  <li>
+      <img src="http://www.geonames.org/flags/x/at.gif" width="30px" />
+  </li>
+  
+</ul>
   		</div>
   	  </div>
 
