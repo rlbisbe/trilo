@@ -78,104 +78,12 @@
 
       <div class="row-fluid">
       	<div class="span12">
-  			<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type='text/javascript'>
-     google.load('visualization', '1', {'packages': ['geochart']});
-     google.setOnLoadCallback(drawRegionsMap);
-
-      function drawRegionsMap() {
-        var data = google.visualization.arrayToDataTable([
-          ['City', 'Trips'],  
-          ['DE', 2],
-           
-          ['GB', 2],
-           
-          ['ES', 1],
-           
-          ['PT', 1],
-           
-          ['US', 4],
-           
-          ['IT', 2],
-           
-          ['CH', 2],
-           
-          ['FR', 1],
-           
-          ['AT', 1],
-          
-
-        ]);
-
-        var options = {
-          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},  
-        };
-
-        var euro_options = {
-          region: '150',
-          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},
-        };
-
-
-        var chart = new google.visualization.GeoChart(document.getElementById('world_chart_div'));
-        chart.draw(data, options);
-
-        var euro_chart = new google.visualization.GeoChart(document.getElementById('europe_chart_div'));
-        euro_chart.draw(data, euro_options);
-
-
-    };
-    </script>
-<section class="content">
-
-  <h2>Mundo</h2>
-  <div id="world_chart_div" style="width: 600px;"></div>
-  
-  <h2>Europa</h2>
-  <div id="europe_chart_div" style="width: 600px;"></div>
-
-  <h2>Banderas</h2>
-  <p>Una lista de los países por los que he estado.</p>
-</section>
-<ul class="entries">
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/de.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/gb.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/es.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/pt.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/us.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/it.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/ch.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/fr.gif" width="30px" />
-  </li>
-  
-  <li>
-      <img src="http://www.geonames.org/flags/x/at.gif" width="30px" />
-  </li>
-  
-</ul>
+  			<h1 class="content">Milan</h1>
+<img src="http://maps.googleapis.com/maps/api/staticmap?center=Milan&zoom=13&size=400x200&maptype=roadmap
+&sensor=false"></img>
+<p>
+<p>Burgos es una ciudad la mar de interesante!</p>
+</p>
   		</div>
   	  </div>
 

@@ -8,18 +8,39 @@ layout: default
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          [''], {% for cat in site.categories %} ['{{cat[0]}}'], {% endfor %}
+          ['City', 'Trips'], {% for cat in site.categories %} 
+          ['{{cat | first}}', {{ cat | last | size }}],
+          {% endfor %}
+
         ]);
 
-        var options = {};
+        var options = {
+          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},  
+        };
 
-        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        var euro_options = {
+          region: '150',
+          colorAxis: {colors: ['#85A5CC', '#1A1F2B']},
+        };
+
+
+        var chart = new google.visualization.GeoChart(document.getElementById('world_chart_div'));
         chart.draw(data, options);
+
+        var euro_chart = new google.visualization.GeoChart(document.getElementById('europe_chart_div'));
+        euro_chart.draw(data, euro_options);
+
+
     };
     </script>
 <section class="content">
+
   <h2>Mundo</h2>
-  <div id="chart_div" style="width: 600px;"></div>
+  <div id="world_chart_div" style="width: 600px;"></div>
+  
+  <h2>Europa</h2>
+  <div id="europe_chart_div" style="width: 600px;"></div>
+
   <h2>Banderas</h2>
   <p>Una lista de los países por los que he estado.</p>
 </section>
