@@ -1,5 +1,7 @@
 ---
 layout: travel_entry
 title: Washington
+days: 4
+places: [White House, Smithsonian, Jefferson Memorial]
 ---
-Burgos es una ciudad la mar de interesante!
+El centro político de los estados unidos es un museo gigantesco.
