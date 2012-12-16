@@ -8,10 +8,7 @@ layout: default
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          
-          {% for cat in site.categories %}
-          ['{{cat[0]}}'],
-          {% endfor %}
+          [''], {% for cat in site.categories %} ['{{cat[0]}}'], {% endfor %}
         ]);
 
         var options = {};
