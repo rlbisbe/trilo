@@ -116,14 +116,18 @@
           colorAxis: {colors: ['#85A5CC', '#1A1F2B']},
         };
 
-
         var chart = new google.visualization.GeoChart(document.getElementById('world_chart_div'));
         chart.draw(data, options);
 
         var euro_chart = new google.visualization.GeoChart(document.getElementById('europe_chart_div'));
         euro_chart.draw(data, euro_options);
 
-
+        // register the 'select' event handler
+        google.visualization.events.addListener(chart, 'select', function () {
+            // GeoChart selections return an array of objects with a row property; no column information
+            var selection = chart.getSelection();
+            alert('You clicked on row ' + selection[0].row + ' which corresponds to data point ' + data.getValue(selection[0].row, 0) + ': ' + data.getValue(selection[0].row, 1));
+        });
     };
     </script>
 <section class="content">

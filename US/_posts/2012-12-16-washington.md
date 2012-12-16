@@ -1,5 +1,5 @@
 ---
 layout: travel_entry
-title: Burgos
+title: Washington
 ---
 Burgos es una ciudad la mar de interesante!
