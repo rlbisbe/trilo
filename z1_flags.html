@@ -35,14 +35,14 @@ title: Banderas
         google.visualization.events.addListener(chart, 'select', function () {
             // GeoChart selections return an array of objects with a row property; no column information
             var selection = chart.getSelection();
-            window.location = '/' +  data.getValue(selection[0].row, 0);
+            window.location = data.getValue(selection[0].row, 0);
         });
 
         // register the 'select' event handler
         google.visualization.events.addListener(euro_chart, 'select', function () {
             // GeoChart selections return an array of objects with a row property; no column information
             var selection = euro_chart.getSelection();
-            window.location = '/' +  data.getValue(selection[0].row, 0);
+            window.location = data.getValue(selection[0].row, 0);
         });
     };
 
@@ -53,7 +53,7 @@ title: Banderas
   <div class="span12">
     <h2>Banderas</h2>
     {% for cat in site.categories %}
-      <a href="/{{cat[0]}}"><img src="http://www.geonames.org/flags/x/{{cat[0] | downcase}}.gif" width="30px" /></a>
+      <a href="{{site.baseurl}}/{{cat[0]}}"><img src="http://www.geonames.org/flags/x/{{cat[0] | downcase}}.gif" width="30px" /></a>
     {% endfor %}
   </div>
 </div>
