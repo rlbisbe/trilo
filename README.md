@@ -10,4 +10,13 @@ Trillo is a blog concept that has some new features, sort by country, by flag, a
 
 Usage
 =====
-This system is based on my own trips and my own experiences, so you can copy it and do whatever you want
+I'm working on it, so, by the moment, you can clone the repo and customize the structure.
+
+Structure
+=========
+	
+	/root
+		/ES <- country
+			index.html <- Contains 2 letter id for the country and a name.
+			_posts
+				YYYY-MM-DD-burgos.md <- City with some info like a title, days or recomended places.
