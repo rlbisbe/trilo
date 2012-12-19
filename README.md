@@ -20,3 +20,5 @@ Structure
 			index.html <- Contains 2 letter id for the country and a name.
 			_posts
 				YYYY-MM-DD-burgos.md <- City with some info like a title, days or recomended places.
+		index.html <- Here you can customize some things (like your name, for example).
+
